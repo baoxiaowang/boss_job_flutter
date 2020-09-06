@@ -38,10 +38,10 @@ class _MessagePageState extends State<MessagePage> {
             delegate: FlexStickyDelegate(
               flexWidget: SearchInput(),
               collapsedHeight: 0,
-              expandedHeight: 50,
+              expandedHeight: 45,
               stick: PreferredSize(
                 child: SearchTabBar(),
-                preferredSize: Size.fromHeight(95)
+                preferredSize: Size.fromHeight(40)
               )
             )
           ),

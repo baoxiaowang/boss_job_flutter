@@ -2,7 +2,7 @@
  * @Author: xuwang.bao
  * @Date: 2020-03-10 22:24:47
  * @LastEditors: xuwang.bao
- * @LastEditTime: 2020-08-31 09:47:53
+ * @LastEditTime: 2020-09-06 10:35:09
  * @Description: 伸缩吸顶
  * @$emit: 
  * @$slot: 
@@ -22,33 +22,46 @@ class FlexStickyDelegate extends SliverPersistentHeaderDelegate {
     this.flexWidget,
     this.paddingTop = 0
   });
+  
+  List<Widget> get stackChildren {
+    List<Widget> list = [];
+    if(this.flexWidget != null){
+      list.add(top);
+    }
+    if(stick != null){
+      list.add(bottom);
+    }
+    return list;
+  }
+
+  Widget get top {
+    return Positioned(
+      left: 0,
+      right: 0,
+      bottom: stick.preferredSize.height,
+      child: flexWidget,
+    );
+  }
+  Widget get bottom {
+    return Positioned(
+      left: 0,
+      right: 0,
+      bottom: 0,
+      child: stick,
+    );
+  }
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    print(shrinkOffset);
-    bool collapsed = maxExtent - shrinkOffset <= minExtent;
-    print(collapsed);
-    print(maxExtent);
-    return OverflowBox(
-      minHeight: maxExtent - shrinkOffset <= minExtent ? minExtent : maxExtent - shrinkOffset,
+    return Container(
+      alignment: Alignment.bottomCenter,
+      height: maxExtent,
+      width: MediaQuery.of(context).size.width,
+      color: Colors.white,
       child: Container(
-        alignment: Alignment.bottomCenter,
-        constraints: BoxConstraints(
-          maxHeight: 145
-        ),
-        color: Colors.red,
-        height: 145,
-        // child: stick,
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: flexWidget != null && !collapsed
-          ? [Container(
-            child: flexWidget,
-            constraints: BoxConstraints(
-              minHeight: maxExtent - minExtent
-            ),
-          ),stick]
-          : [stick],
+        child:  Stack(
+          overflow: Overflow.visible,
+          fit: StackFit.expand,
+          children: stackChildren,
         ),
       ),
     );

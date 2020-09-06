@@ -4,12 +4,10 @@ class SearchInput extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 40,
+      width: MediaQuery.of(context).size.width,
       alignment: Alignment.topLeft,
-      // constraints: BoxConstraints(
-      //   maxHeight: 40
-      // ),
       padding: EdgeInsets.symmetric(
-        horizontal: 20,
+        horizontal: 15,
         vertical: 0
       ),
 
