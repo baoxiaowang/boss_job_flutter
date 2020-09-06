@@ -1,33 +1,6 @@
-/*
- * @Author: xuwang.bao
- * @Date: 2020-08-24 16:24:35
- * @LastEditors: xuwang.bao
- * @LastEditTime: 2020-08-26 19:06:37
- * @Description: 定制动态appBar
- * @$emit: 
- * @$slot: 
- */
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-class SliveHaderBar extends StatelessWidget  {
-  SliveHaderBar({this.title, this.paddingTop = 0});
-
-  String title;
-  double paddingTop;
-  @override
-  Widget build(Object context) {
-    return SliverPersistentHeader(
-      pinned: true,
-      floating: true,
-      delegate: SliveHaderBarDelegate(
-        title: title,
-        paddingTop: paddingTop
-      )
-    );
-  }
-}
-
+import 'dart:math' as math;
 class SliveHaderBarDelegate extends SliverPersistentHeaderDelegate{
   SliveHaderBarDelegate({
     this.title, 
@@ -44,31 +17,30 @@ class SliveHaderBarDelegate extends SliverPersistentHeaderDelegate{
   final double expandedHeight;
   List<Widget> actions;
   final PreferredSizeWidget stick; //吸顶的组件
-
   Widget _flexible(double scale){
     return Container(
       height: 40,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
+            alignment: Alignment.centerLeft,
             width: 100,
-            // padding: EdgeInsets.only(
-            //   left: 15
-            // ),
             child: Transform.scale(
               alignment: Alignment.centerLeft,
               scale: scale,
               child: Text(title,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 16
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500
                 )
               ),
             ),
           ),
           Expanded(
             child: Container(
+              alignment: Alignment.centerRight,
               height: 30,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -86,10 +58,13 @@ class SliveHaderBarDelegate extends SliverPersistentHeaderDelegate{
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarBrightness: Brightness.dark,
       statusBarIconBrightness: Brightness.dark,
-    ));  
-    double range = maxExtent - minExtent;
-    double offset = range - shrinkOffset;
-    double scale = (offset) <= 0 ? 1 : (offset / range * 0.5) + 1;
+    ));
+    double currentExtent = math.max(minExtent, maxExtent - shrinkOffset);
+    final double deltaExtent = maxExtent - minExtent;
+    final double t = (1.0 - (currentExtent - minExtent) / deltaExtent).clamp(0.0, 1.0) as double;
+    final double scaleValue = Tween<double>(begin: 1.5, end: 1.0).transform(t);
+
+    final double top = Tween<double>(begin: 44 + deltaExtent, end: 44).transform(t);
     // 伸缩区
     Widget _flexible = Expanded(
       child: Container(
@@ -101,10 +76,11 @@ class SliveHaderBarDelegate extends SliverPersistentHeaderDelegate{
           fit: StackFit.expand,
           children: [
             Positioned(
+              top: top,
               left: 0,
-              bottom: 15,
+              // bottom: 15,
               right: 0,
-              child: this._flexible(scale)
+              child: this._flexible(scaleValue)
             )
           ],
         ),

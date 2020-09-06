@@ -16,29 +16,44 @@ class _MessagePageState extends State<MessagePage> {
       backgroundColor: Colors.white,
       body: CustomScrollView(
         slivers: [
-          SliverPersistentHeader(
+          // SliverPersistentHeader(
+          //   pinned: true,
+          //   // floating: true,
+          //   delegate: SliveHaderBarDelegate(
+          //     collapsedHeight: 50,
+          //     expandedHeight: 60,
+          //     title: '聊天',
+          //     actions: [
+          //       IconButton(
+          //         icon: Icon(Icons.notifications_none),
+          //         onPressed: (){},
+          //         color: Colors.white,
+          //       )
+          //     ],
+          //     paddingTop: MediaQuery.of(context).padding.top,
+          //   )
+          // ),
+          SliverAppBar(
             pinned: true,
-            // floating: true,
-            delegate: SliveHaderBarDelegate(
-              collapsedHeight: 50,
-              expandedHeight: 60,
-              title: '聊天',
-              actions: [
-                IconButton(
-                  icon: Icon(Icons.notifications_none),
-                  onPressed: (){},
-                  color: Colors.white,
-                )
-              ],
-              paddingTop: MediaQuery.of(context).padding.top,
-            )
+            centerTitle: false,
+            title: Text('聊天', style: TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 20
+            ),),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.notifications_none),
+                onPressed: (){},
+                color: Colors.white,
+              )
+            ],
           ),
           SliverPersistentHeader(
             pinned: true,
             delegate: FlexStickyDelegate(
               flexWidget: SearchInput(),
               collapsedHeight: 0,
-              expandedHeight: 45,
+              expandedHeight: 55,
               stick: PreferredSize(
                 child: SearchTabBar(),
                 preferredSize: Size.fromHeight(40)
