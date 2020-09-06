@@ -1,14 +1,14 @@
 import 'package:boos_job/page/home/company/company_page.dart';
 import 'package:boos_job/page/home/message/message_page.dart';
 import 'package:boos_job/page/home/personal/personal_page.dart';
-import 'package:boos_job/page/home/position/position_page.dart';
+import 'package:boos_job/page/home/work/work_page.dart';
 import 'package:boos_job/providers/home_page_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key key}) : super(key: key);
   
-  final PositionPage _positionPage = PositionPage();
+  final WorkPage _positionPage = WorkPage();
   final CompanyPage _companyPage = CompanyPage();
   final MessagePage _messagePage = MessagePage();
   final PersonalPage _personalPage = PersonalPage();
@@ -69,7 +69,7 @@ class HomePageView extends StatefulWidget {
 }
 
 class _HomePageViewState extends State<HomePageView> {
-  PositionPage _positionPage = PositionPage();
+  WorkPage _positionPage = WorkPage();
   CompanyPage _companyPage = CompanyPage();
   MessagePage _messagePage = MessagePage();
   PersonalPage _personalPage = PersonalPage();

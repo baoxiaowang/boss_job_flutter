@@ -7,12 +7,17 @@ import 'router_handlers.dart';
 class Routes{
   static String root = '/';
   static String searchPath = '/search';
+  static String workDetail = '/worlDetail';
   
   // 路由表
   static List<RouteConifg> routerHandlers = [
     RouteConifg(
       path: Routes.searchPath,
       handler: searchPageHandler
+    ),
+    RouteConifg(
+      path: Routes.workDetail,
+      handler: workDetailPageHandler
     ),
   ];
 

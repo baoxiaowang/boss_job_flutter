@@ -2,7 +2,7 @@
  * @Author: xuwang.bao
  * @Date: 2020-08-24 21:06:11
  * @LastEditors: xuwang.bao
- * @LastEditTime: 2020-08-25 00:38:21
+ * @LastEditTime: 2020-09-06 23:22:14
  * @Description: 
  * @$emit: 
  * @$slot: 
@@ -10,23 +10,36 @@
 import 'package:boos_job/wiggets/position_label.dart';
 import 'package:flutter/material.dart';
 
-class PositionItem extends StatelessWidget {
+class WorkItem extends StatelessWidget {
+  WorkItem({
+    this.onTab
+  });
+  final GestureTapCallback onTab;
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: Colors.white,
       margin: EdgeInsets.only(
         bottom: 6
       ),
-      color: Colors.white,
       // height: 170,
-      padding: EdgeInsets.all(15),
-      child: Column(
-        children: [
-          positionName,
-          labelRow,
-          companyInfo,
-          contacts
-        ],
+      child: Material(
+        color: Colors.white,
+        child: InkWell(
+          onTap: onTab,
+          splashColor: Theme.of(context).scaffoldBackgroundColor,
+          child: Container(
+            padding: EdgeInsets.all(15),
+            child: Column(
+              children: [
+                positionName,
+                labelRow,
+                companyInfo,
+                contacts
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

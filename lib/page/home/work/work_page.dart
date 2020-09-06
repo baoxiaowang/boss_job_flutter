@@ -7,13 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 
-import 'widgets/position_item.dart';
-class PositionPage extends StatefulWidget  {
+import 'widgets/work_item.dart';
+class WorkPage extends StatefulWidget  {
   @override
-  _PositionPageState createState() => _PositionPageState();
+  _WorkPageState createState() => _WorkPageState();
 }
 
-class _PositionPageState extends State<PositionPage> with AutomaticKeepAliveClientMixin {
+class _WorkPageState extends State<WorkPage> with AutomaticKeepAliveClientMixin {
   int _count = 0;
   EasyRefreshController _controller = EasyRefreshController();
   @override
@@ -66,7 +66,11 @@ class _PositionPageState extends State<PositionPage> with AutomaticKeepAliveClie
               ),
               header,
               SliverList(
-                delegate: SliverChildBuilderDelegate((context, index) => PositionItem(),
+                delegate: SliverChildBuilderDelegate((context, index) => WorkItem(
+                  onTab: (){
+                    Application.router.navigateTo(context, Routes.workDetail, transition: TransitionType.cupertino);
+                  },
+                ),
                   childCount: _count
                 )
               ),

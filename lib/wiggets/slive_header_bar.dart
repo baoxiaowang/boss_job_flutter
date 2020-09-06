@@ -62,8 +62,7 @@ class SliveHaderBarDelegate extends SliverPersistentHeaderDelegate{
     double currentExtent = math.max(minExtent, maxExtent - shrinkOffset);
     final double deltaExtent = maxExtent - minExtent;
     final double t = (1.0 - (currentExtent - minExtent) / deltaExtent).clamp(0.0, 1.0) as double;
-    final double scaleValue = Tween<double>(begin: 1.5, end: 1.0).transform(t);
-
+    final double scaleValue = Tween<double>(begin: 1.2, end: 1.0).transform(t);
     final double top = Tween<double>(begin: 44 + deltaExtent, end: 44).transform(t);
     // 伸缩区
     Widget _flexible = Expanded(
