@@ -1,5 +1,26 @@
+import 'package:boos_job/wiggets/expandable_text.dart';
+import 'package:boos_job/wiggets/position_label.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+const textInfo = 
+'''
+职位描述\n
+1、负责公司核心业务系统前端团队的搭建和管理；\n
+2、负责对标业内顶级 Saas 和 Paas 平台的需求研究、技术研究和实现；\n
+3、负责不断优化团队前后端分离架构，提高团队开发效率和质量；\n
+4、负责探索前端新的技术框架和边界（Vue.js，ElasticSearch，ReactNative等）；\n
+5、负责团队 Scrum 流程推进和优化；\n
+6、负责发现和产出对团队效率提升有价值的产品和工具；\n
+7、更多的工作内容，欢迎你过来自己定义：）\n
+职位要求\n
+1、计算机相关专业，5年以上Web前端开发经验，有管理经验优先；\n
+2、追求极致和完美，有代码洁癖，善于总结和挖掘事物本质；\n
+3、前端基础扎实，理解RIA，有Ajax相关的实践经验，对React.js，Vue.js，Angular.js等MVVM框架能熟练运用至少一种，且了解其基本原理；\n
+4、关注Web发展，对新技术充满激情，期待或者已经开发出优秀的产品；\n
+5、对实现高性能、高可用、优秀用户体验的 Web 应用有实际的了解和实践经验；\n
+6、熟悉 B/S 架构，有 Node 经验，有 Python 等其他脚本语言经验更佳；\n
+7、有团队精神，性格乐观，能积极面对压力。
+''';
 class WorkDetailPage extends StatefulWidget {
   @override
   _WorkDetailPageState createState() => _WorkDetailPageState();
@@ -152,6 +173,54 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
       ),
     );
   }
+  Widget _workInfo(){
+    return Container(
+      padding: EdgeInsets.all(20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.only(bottom: 15),
+            child: Text('职位详情', style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+              color: Color(0xff333333)
+            ),),
+          ),
+          Container(
+            margin: EdgeInsets.only(bottom: 10),
+            child: ExpandableText(textInfo,
+              expandText: '查看全部',
+              collapseText: '',
+              expanded: false,
+              maxLines: 7,
+              style: TextStyle(
+                fontSize: 16,
+                color: Color(0xff666666)
+              ),
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(bottom: 20),
+            decoration: BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Color(0xffeeeeee)
+                )
+              )
+            ),
+            child: Row(
+              children: [
+                PositionLabel('HTML'),
+                PositionLabel('CSS'),
+                PositionLabel('javaScript'),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -182,8 +251,9 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
                   children: [
                     _detailTitle(),
                     _hrWidget(),
+                    _workInfo(),
                     Container(
-                      height: 600,
+                      height: 200,
                       color: Colors.white,
                     )
                   ],
@@ -244,7 +314,7 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
                             width: 40,
                             child: FlatButton(
                               onPressed: (){},
-                              child: Icon(Icons.share, color: Color(0xff333333)),
+                              child: Icon(Icons.launch, color: Color(0xff333333)),
                             ),
                           ),
                         ],
@@ -268,18 +338,16 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
                   )
                 )
               ),
-              margin: EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
-              padding: EdgeInsets.symmetric(
-                horizontal: 10,
-                vertical: 10
-              ),
-              height: 65,
-              child: RaisedButton(
-                color: Theme.of(context).primaryColor,
-                child: Text('立即沟通', style: TextStyle(
-                  color: Colors.white
-                ),),
-                onPressed: (){}
+              padding: EdgeInsets.fromLTRB(10, 10, 10, MediaQuery.of(context).padding.bottom + 10),
+              child: Container(
+                height: 45,
+                child: RaisedButton(
+                  color: Theme.of(context).primaryColor,
+                  child: Text('立即沟通', style: TextStyle(
+                    color: Colors.white
+                  ),),
+                  onPressed: (){}
+                ),
               ),
             )
           )

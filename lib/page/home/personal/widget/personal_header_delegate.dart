@@ -7,14 +7,19 @@ class PersonalHeaderDelegate extends SliverPersistentHeaderDelegate{
   final double paddingTop; // 兼容iPhoneX
 
   Widget _getTitle(){
-    return Container(
-      height: 55,
-      alignment: Alignment.centerLeft,
-      child: Text('鲍小旺', style: TextStyle(
-        color: Colors.white,
-        fontSize: 20,
-        fontWeight: FontWeight.w500
-      ),),
+    return GestureDetector(
+      onVerticalDragStart: (d){
+        return false;
+      },
+      child: Container(
+        height: 55,
+        alignment: Alignment.centerLeft,
+        child: Text('鲍小旺', style: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.w500
+        ),),
+      ),
     );
   }
   Widget _itemStatistics(String title, int value){
@@ -35,21 +40,26 @@ class PersonalHeaderDelegate extends SliverPersistentHeaderDelegate{
     );
   }
   Widget _appBar(context){
-    return Container(
-      margin: EdgeInsets.only(
-        top: paddingTop
-      ),
-      height: 55,
-      width: double.infinity,
-      color: Theme.of(context).primaryColor,
-      child: Row(
-        mainAxisSize: MainAxisSize.max,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          IconButton(icon: Icon(Icons.crop_free, color: Colors.white,), onPressed: null),
-          IconButton(icon: Icon(Icons.brightness_5, color: Colors.white,), onPressed: null)
-        ],
+    return GestureDetector(
+      onVerticalDragStart: (d){
+        return false;
+      },
+      child: Container(
+        margin: EdgeInsets.only(
+          top: paddingTop
+        ),
+        height: 55,
+        width: double.infinity,
+        color: Theme.of(context).primaryColor,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            IconButton(icon: Icon(Icons.crop_free, color: Colors.white,), onPressed: null),
+            IconButton(icon: Icon(Icons.brightness_5, color: Colors.white,), onPressed: null)
+          ],
+        ),
       ),
     );
   }

@@ -83,9 +83,12 @@ class _SearchPageState extends State<SearchPage> {
                   Expanded(child: SearchInput(
                     onchange: (val){
                       List<String> result = [];
+                      var reg = RegExp(val,
+                        caseSensitive: false
+                      );
                       try {
                         word.forEach((String item) {
-                          if(item.indexOf(val) != -1){
+                          if(reg.hasMatch(item)){
                             result.add(item);
                           }
                         });
@@ -115,7 +118,6 @@ class _SearchPageState extends State<SearchPage> {
         if(result.length <= 0){
           return reusltEmptyBody;
         }
-
         return ListView.builder(
           padding: EdgeInsets.symmetric(
             horizontal: 15
@@ -131,7 +133,10 @@ class _SearchPageState extends State<SearchPage> {
             );
             print(keyword);
             if(keyword != ''){
-              var strArr = item.split(keyword);
+              var reg = RegExp(keyword,
+                caseSensitive: false
+              );
+              var strArr = item.split(reg);
               var index = 1;
               strArr.forEach((item) {
                 if(item != ''){

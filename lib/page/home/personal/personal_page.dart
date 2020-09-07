@@ -1,5 +1,4 @@
 import 'package:boos_job/page/home/personal/widget/setting_row.dart';
-import 'package:boos_job/wiggets/slive_header_bar.dart';
 import 'package:flutter/material.dart';
 import 'widget/personal_header_delegate.dart';
 class PersonalPage extends StatelessWidget {

@@ -116,7 +116,6 @@ class PositionBarBottom extends StatelessWidget implements PreferredSizeWidget {
   // 切换tab
   Widget _positionTab = Builder(builder: (ctx){
     return Container(
-      width: 175,
       child: Row(
         children: [
           FlatButton(

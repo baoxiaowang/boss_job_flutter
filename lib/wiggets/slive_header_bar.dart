@@ -86,11 +86,17 @@ class SliveHaderBarDelegate extends SliverPersistentHeaderDelegate{
       ) 
     );
     List<Widget> columnChildren = stick == null ? [_flexible] : [_flexible, stick];
-    return Container(
-      height: maxExtent,
-      child: Column(
-        children: columnChildren,
-      ),
+    return GestureDetector(
+        onVerticalDragStart:(dragStartDetails){
+          return false;
+        },
+        child: Container(
+        height: maxExtent,
+        color: Colors.white,
+        child: Column(
+          children: columnChildren,
+        ),
+      )
     );
   }
 
