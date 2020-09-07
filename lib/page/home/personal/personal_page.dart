@@ -43,9 +43,7 @@ class PersonalPage extends StatelessWidget {
               memo: '在职考虑机会',
             ),
             Container(
-              margin: EdgeInsets.symmetric(
-                vertical: 15
-              ),
+              margin: EdgeInsets.only(top: 10),
               child: Divider(
                 height: 1.0,
                 indent: 0.0,
@@ -71,9 +69,7 @@ class PersonalPage extends StatelessWidget {
               title: '提升简历曝光',
             ),
             Container(
-              margin: EdgeInsets.symmetric(
-                vertical: 15
-              ),
+              margin: EdgeInsets.only(top: 10),
               child: Divider(
                 height: 1.0,
                 indent: 0.0,
@@ -107,9 +103,7 @@ class PersonalPage extends StatelessWidget {
               title: '牛人问答',
             ),
             Container(
-              margin: EdgeInsets.symmetric(
-                vertical: 15
-              ),
+              margin: EdgeInsets.only(top: 10),
               child: Divider(
                 height: 1.0,
                 indent: 0.0,
@@ -148,9 +142,7 @@ class PersonalPage extends StatelessWidget {
               title: '关于',
             ),
             Container(
-              margin: EdgeInsets.symmetric(
-                vertical: 15
-              ),
+              margin: EdgeInsets.only(top: 10),
               child: Divider(
                 height: 1.0,
                 indent: 0.0,
@@ -164,7 +156,9 @@ class PersonalPage extends StatelessWidget {
   }
   Widget _aboutBlock(){
     return Container(
-      margin: EdgeInsets.only(bottom: 20),
+      margin: EdgeInsets.symmetric(
+        vertical: 20
+      ),
       alignment: Alignment.center,
       child: Text('客服电话 400-065-9999   工作时间9:30-18:30', style: TextStyle(
         fontSize: 11,
