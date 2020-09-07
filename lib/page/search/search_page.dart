@@ -25,16 +25,17 @@ class _SearchPageState extends State<SearchPage> {
     'AAAA'
   ];
   List<String> result;
-
+  String keyword = '';
   @override
   void initState() { 
     super.initState();
     result = [];
   }
 
-  changeResult(List<String> val){
+  changeResult(List<String> val,String keyword){
     setState(() {
       result = val;
+      this.keyword = keyword;
     });
   }
 
@@ -44,7 +45,6 @@ class _SearchPageState extends State<SearchPage> {
       statusBarBrightness: Brightness.light,
       statusBarIconBrightness: Brightness.light,
     ));
-    print('------------');
     print(result);
     return Scaffold(
       appBar: PreferredSize(
@@ -89,11 +89,10 @@ class _SearchPageState extends State<SearchPage> {
                             result.add(item);
                           }
                         });
-                        changeResult(result);
+                        changeResult(result, val);
                       } catch (e) {
                         print(e);
                       }
-                      
                     },
                   ),),
                   FlatButton(
@@ -122,6 +121,38 @@ class _SearchPageState extends State<SearchPage> {
             horizontal: 15
           ),
           itemBuilder: (ctx, index){
+            List<InlineSpan> children = [];
+            var item = result[index];
+            var keywordStyle = TextStyle(
+              color: Theme.of(context).primaryColor
+            );
+            var itemStyle = TextStyle(
+              color: Color(0xff333333)
+            );
+            print(keyword);
+            if(keyword != ''){
+              var strArr = item.split(keyword);
+              var index = 1;
+              strArr.forEach((item) {
+                if(item != ''){
+                  children.add(TextSpan(
+                    text: item,
+                    style: itemStyle
+                  ));
+                }
+                if(index != strArr.length){
+                  children.add(TextSpan(
+                    text: keyword,
+                    style: keywordStyle
+                  ));
+                }
+                index++;
+              });
+            }else{
+              children.add(TextSpan(
+                text: item
+              ));
+            }
             return Container(
               decoration: BoxDecoration(
                 border: Border(
@@ -130,10 +161,15 @@ class _SearchPageState extends State<SearchPage> {
               ),
               height: 55,
               alignment: Alignment.centerLeft,
-              child: Text('${result[index]}', style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500
-              ),),
+              child: RichText(
+                text: TextSpan(
+                  children: children
+                )
+              ),
+              // child: Text('${result[index]}', style: TextStyle(
+              //   fontSize: 16,
+              //   fontWeight: FontWeight.w500
+              // ),),
             );
           },
           itemCount: result.length,

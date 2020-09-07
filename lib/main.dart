@@ -36,6 +36,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        
         buttonTheme: ButtonThemeData(
           minWidth: 50,
           padding: EdgeInsets.symmetric(
@@ -51,7 +52,6 @@ class MyApp extends StatelessWidget {
       home: HomePage(),
       onGenerateRoute: Application.router.generator,
       localizationsDelegates: [
-        // ... app-specific localization delegate[s] here
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
@@ -59,7 +59,6 @@ class MyApp extends StatelessWidget {
       supportedLocales: [
         const Locale('zh','CN'),
         const Locale('en','US'),
-        // ... other locales the app supports
       ],
     );
   }

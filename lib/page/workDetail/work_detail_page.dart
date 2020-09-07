@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 class WorkDetailPage extends StatefulWidget {
   @override
   _WorkDetailPageState createState() => _WorkDetailPageState();
@@ -33,7 +34,7 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
                   // color: Colors.yellow,
                   margin: EdgeInsets.only(right: 10),
                   child: Text('web前端开发工程师', style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 25,
                     fontWeight: FontWeight.w500,
                     color: Color(0xff333333)
                   ),),
@@ -153,6 +154,10 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
   }
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.light,
+      statusBarIconBrightness: Brightness.light,
+    ));
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -192,11 +197,11 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
             right: 0,
             child: Container(
               margin: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-              color: Colors.yellow,
+              color: Colors.white,
               child: Container(
                 height: 45,
-                color: Colors.white,
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
                       child: BackButton(
@@ -209,7 +214,7 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
                           opacity: appBarTitleAlpha,
                           child: Text('web前端开发工程师',textAlign: TextAlign.left, style: TextStyle(
                             color: Color(0xff333333),
-                            fontSize: 15,
+                            fontSize: 18,
                             fontWeight: FontWeight.w500
                             ),
                           )
@@ -217,11 +222,31 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
                       )
                     ),
                     Container(
+                      margin: EdgeInsets.only(right: 10),
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          IconButton(icon: Icon(Icons.star_outline),color: Color(0xff333333), onPressed: (){}),
-                          IconButton(icon: Icon(Icons.warning_amber_outlined), color: Color(0xff333333), onPressed: (){}),
-                          IconButton(icon: Icon(Icons.share), color: Color(0xff333333), onPressed: (){})
+                          Container(
+                            width: 40,
+                            child: FlatButton(
+                              onPressed: (){},
+                              child: Icon(Icons.star_outline, color: Color(0xff333333)),
+                            ),
+                          ),
+                          Container(
+                            width: 40,
+                            child: FlatButton(
+                              onPressed: (){},
+                              child: Icon(Icons.warning_amber_outlined, color: Color(0xff333333)),
+                            ),
+                          ),
+                          Container(
+                            width: 40,
+                            child: FlatButton(
+                              onPressed: (){},
+                              child: Icon(Icons.share, color: Color(0xff333333)),
+                            ),
+                          ),
                         ],
                       ),
                     )
