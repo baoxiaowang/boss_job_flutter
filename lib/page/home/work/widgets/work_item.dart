@@ -2,7 +2,7 @@
  * @Author: xuwang.bao
  * @Date: 2020-08-24 21:06:11
  * @LastEditors: xuwang.bao
- * @LastEditTime: 2020-09-06 23:22:14
+ * @LastEditTime: 2020-09-08 10:32:37
  * @Description: 
  * @$emit: 
  * @$slot: 
@@ -115,6 +115,8 @@ class WorkItem extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(right: 7),
                   child: CircleAvatar(
+                    backgroundColor: Color(0xffeeeeee),
+                    // foregroundColor: Theme.of(ctx).scaffoldBackgroundColor,
                     radius: 15.0,
                     backgroundImage: NetworkImage('https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3140403455,2984550794&fm=26&gp=0.jpg'),
                   ),

@@ -67,9 +67,16 @@ class SliveHaderBarDelegate extends SliverPersistentHeaderDelegate{
     // 伸缩区
     Widget _flexible = Expanded(
       child: Container(
-        color: Theme.of(context).primaryColor,
         padding: EdgeInsets.symmetric(
           horizontal: 15
+        ),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xff4eaaa8),
+              Color(0xff50aba9),
+            ]
+          )
         ),
         child: Stack(
           fit: StackFit.expand,
@@ -87,12 +94,11 @@ class SliveHaderBarDelegate extends SliverPersistentHeaderDelegate{
     );
     List<Widget> columnChildren = stick == null ? [_flexible] : [_flexible, stick];
     return GestureDetector(
-        onVerticalDragStart:(dragStartDetails){
-          return false;
-        },
-        child: Container(
+      onVerticalDragStart:(dragStartDetails){
+        return false;
+      },
+      child: Container(
         height: maxExtent,
-        color: Colors.white,
         child: Column(
           children: columnChildren,
         ),
