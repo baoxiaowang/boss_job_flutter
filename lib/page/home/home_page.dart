@@ -4,6 +4,7 @@ import 'package:boos_job/page/home/personal/personal_page.dart';
 import 'package:boos_job/page/home/work/work_page.dart';
 import 'package:boos_job/providers/home_page_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 class HomePage extends StatelessWidget {
   HomePage({Key key}) : super(key: key);
@@ -75,6 +76,10 @@ class _HomePageViewState extends State<HomePageView> {
   PersonalPage _personalPage = PersonalPage();
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.dark,
+    ));
     return PageView(
       controller: PageController(
         initialPage: context.select<HomePageProvider, int>((value) => value.currentIndex)

@@ -221,6 +221,103 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
       ),
     );
   }
+  Widget _compay(){
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: 20
+      ),
+      margin: EdgeInsets.only(bottom: 20),
+      child: Row(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Color(0xffeeeeee)
+              )
+            ),
+            height: 50,
+            width: 50,
+            margin: EdgeInsets.only(right: 10),
+            child: Image.network('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598335768471&di=651a67d0636cc67bbb96ca3e7ab39554&imgtype=0&src=http%3A%2F%2Fzhaopin-rd5-pub.oss-cn-beijing.aliyuncs.com%2Fimgs%2Fcompany%2Ff131b23ae3960b8142e34a766620be1b.jpeg'),
+          ),
+          Expanded(
+            child: Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    child: Text('字节跳动', style: TextStyle(
+                      color: Color(0xff333333),
+                      fontSize: 17,
+                      fontWeight: FontWeight.w500
+                    ),),
+                  ),
+                  Container(
+                    child: Text('已上市 · 10000 · 互联网', style: TextStyle(
+                      fontSize: 14,
+                      color: Color(0xff999999)
+                    ),),
+                  ),
+                ],
+              ),
+            )
+          ),
+          Container(
+            child: Icon(Icons.keyboard_arrow_right, color: Color(0xff999999),),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _mapWidget(){
+    return Container(
+      // color: Colors.yellow,
+      padding: EdgeInsets.symmetric(
+        horizontal: 20
+      ),
+      child: Container(
+        height: 225,
+        child: Image.network('https://restapi.amap.com/v3/staticmap?zoom=17&scale=2&size=770*450&markers=mid,0xFF0000,A:120.003305,30.281801&key=21b56a6cc83fad7668dbb0e9564759a7', fit: BoxFit.cover,),
+      ),
+    );
+  }
+
+  Widget _warningWidget(){
+    return Container(
+      padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Color(0xffeeeeee)
+        )
+      ),
+      child: Column(
+        children: [
+          Container(
+            margin: EdgeInsets.only(bottom: 20),
+            child: Row(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(right: 5),
+                  child: Icon(Icons.warning_amber_outlined, color: Color(0xffe47571),size: 15,),
+                ),
+                Text('温馨提示', style: TextStyle(
+                  fontSize: 17,
+                  color: Color(0xffe47571)
+                ),)
+              ],
+            ),
+          ),
+          Container(
+            child: Text('该boss承诺名下所有职位不向您收费，如有不实请立即举报', style: TextStyle(
+              fontSize: 15
+            ),),
+          )
+        ],
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -252,6 +349,9 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
                     _detailTitle(),
                     _hrWidget(),
                     _workInfo(),
+                    _compay(),
+                    _mapWidget(),
+                    _warningWidget(),
                     Container(
                       height: 200,
                       color: Colors.white,

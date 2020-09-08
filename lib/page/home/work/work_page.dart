@@ -5,6 +5,7 @@ import 'package:boos_job/wiggets/slive_header_bar.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 
 import 'widgets/work_item.dart';
@@ -68,7 +69,14 @@ class _WorkPageState extends State<WorkPage> with AutomaticKeepAliveClientMixin 
               SliverList(
                 delegate: SliverChildBuilderDelegate((context, index) => WorkItem(
                   onTab: (){
-                    Application.router.navigateTo(context, Routes.workDetail, transition: TransitionType.cupertino);
+                    Application.router.navigateTo(context, Routes.workDetail, transition: TransitionType.cupertino)
+                    .then((value){
+                      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+                        statusBarBrightness: Brightness.dark,
+                        statusBarIconBrightness: Brightness.dark,
+                      ));
+                    })
+                    ;
                   },
                 ),
                   childCount: _count

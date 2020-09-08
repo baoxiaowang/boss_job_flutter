@@ -1,5 +1,6 @@
 import 'package:boos_job/page/home/personal/widget/setting_row.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'widget/personal_header_delegate.dart';
 class PersonalPage extends StatelessWidget {
   Widget _getTopBlock(){
