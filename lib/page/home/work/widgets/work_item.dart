@@ -95,7 +95,7 @@ class WorkItem extends StatelessWidget {
         children: [
           Container(
             margin: EdgeInsets.only(right: 10),
-            child: Text('邻汇吧', style: style),
+            child: Text('字节跳动', style: style),
           ),
           Container(
             child: Text('不需要融资', style: style),

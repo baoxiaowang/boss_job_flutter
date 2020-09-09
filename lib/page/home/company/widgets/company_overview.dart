@@ -21,7 +21,7 @@ class CompanyOverview extends StatelessWidget {
                     children: [
                       Expanded(
                         child: _companyItem(
-                          title: '邻汇吧',
+                          title: '字节跳动',
                           imgUrl: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1598334519535&di=9faba8984800120a08d5d528d568605e&imgtype=0&src=http%3A%2F%2Fstatic.lagou.com%2Fthumbnail_300x300%2Fi%2Fimage2%2FM00%2F1F%2F3F%2FCgotOVoM5s6AFFwRAAAuLYLC9XM864.png'
                         ),
                       ),

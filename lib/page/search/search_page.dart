@@ -15,7 +15,7 @@ class _SearchPageState extends State<SearchPage> {
   List<String> word = [
     '阿里巴巴',
     '网易',
-    '邻汇吧',
+    '字节跳动',
     '百度',
     'web前端',
     'flutter',

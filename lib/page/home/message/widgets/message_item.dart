@@ -46,7 +46,7 @@ class MessageItem extends StatelessWidget {
                     fontWeight: FontWeight.w500
                   )),
                 ),
-                Expanded(child: Text('邻汇吧·HR', 
+                Expanded(child: Text('字节跳动·HR', 
                 style: TextStyle(
                   fontSize: 11,
                   color: Color(0xFF666666)

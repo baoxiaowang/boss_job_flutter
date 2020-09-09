@@ -84,7 +84,7 @@ class PersonalHeaderDelegate extends SliverPersistentHeaderDelegate{
                     children: [
                       Container(
                         margin: EdgeInsets.only(right: 5),
-                        child: Icon(IconData(0xe600, fontFamily: 'bossIcons'),color: Colors.white,size: 12,),
+                        child: Icon(const IconData(0xe600, fontFamily: 'bossIcons'),color: Colors.white,size: 12,),
                       ),
                       Text('我的在线简历', style: TextStyle(
                         color: Colors.white,

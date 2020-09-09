@@ -1,6 +1,5 @@
 import 'package:boos_job/page/home/personal/widget/setting_row.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'widget/personal_header_delegate.dart';
 class PersonalPage extends StatelessWidget {
   Widget _getTopBlock(){
@@ -91,7 +90,7 @@ class PersonalPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SettingRow(
-              icon: Icon(IconData(0xe629,fontFamily: 'bossIcons'), color: Color(0xff909090)),
+              icon: Icon(const IconData(0xe629,fontFamily: 'bossIcons'), color: Color(0xff909090)),
               title: '我的发现',
             ),
             SettingRow(

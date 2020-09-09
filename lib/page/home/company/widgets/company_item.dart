@@ -41,7 +41,7 @@ class CompanyItem extends StatelessWidget {
                 children: [
                   Container(
                     margin: EdgeInsets.only(bottom: 5),
-                    child: Text('邻汇吧', 
+                    child: Text('字节跳动', 
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w500
