@@ -1,5 +1,6 @@
 import 'package:boos_job/wiggets/expandable_text.dart';
 import 'package:boos_job/wiggets/position_label.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 const textInfo = 
@@ -151,7 +152,7 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
                   ),
                 ),
                 Container(
-                  child: Text('邻汇吧 · 招聘经理', style: TextStyle(
+                  child: Text('字节跳动 · 招聘经理', style: TextStyle(
                     fontSize: 13
                   ),),
                 )
@@ -277,44 +278,55 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
       padding: EdgeInsets.symmetric(
         horizontal: 20
       ),
+      margin: EdgeInsets.only(bottom: 20),
       child: Container(
         height: 225,
         child: Image.network('https://restapi.amap.com/v3/staticmap?zoom=17&scale=2&size=770*450&markers=mid,0xFF0000,A:120.003305,30.281801&key=21b56a6cc83fad7668dbb0e9564759a7', fit: BoxFit.cover,),
       ),
     );
   }
-
   Widget _warningWidget(){
     return Container(
-      padding: EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        border: Border.all(
-          color: Color(0xffeeeeee)
-        )
+      // padding: EdgeInsets.all(20),
+      padding: EdgeInsets.symmetric(
+        horizontal: 20
       ),
-      child: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.only(bottom: 20),
-            child: Row(
-              children: [
-                Container(
-                  margin: EdgeInsets.only(right: 5),
-                  child: Icon(Icons.warning_amber_outlined, color: Color(0xffe47571),size: 15,),
-                ),
-                Text('温馨提示', style: TextStyle(
-                  fontSize: 17,
-                  color: Color(0xffe47571)
-                ),)
-              ],
-            ),
-          ),
-          Container(
-            child: Text('该boss承诺名下所有职位不向您收费，如有不实请立即举报', style: TextStyle(
-              fontSize: 15
-            ),),
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          vertical: 20
+        ),
+        decoration: BoxDecoration(
+          border: Border.symmetric(
+            horizontal: BorderSide(
+              color: Color(0xffeeeeee),
+              width: 1
+            )
           )
-        ],
+        ),
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.only(bottom: 20),
+              child: Row(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(right: 5),
+                    child: Icon(Icons.warning_amber_outlined, color: Color(0xffe47571),size: 15,),
+                  ),
+                  Text('温馨提示', style: TextStyle(
+                    fontSize: 17,
+                    color: Color(0xffe47571)
+                  ),)
+                ],
+              ),
+            ),
+            Container(
+              child: Text('该boss承诺名下所有职位不向您收费，如有不实请立即举报', style: TextStyle(
+                fontSize: 15
+              ),),
+            )
+          ],
+        ),
       ),
     );
   }
