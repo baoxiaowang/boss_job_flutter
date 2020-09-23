@@ -1,3 +1,4 @@
+import 'package:boos_job/page/about/about_page.dart';
 import 'package:boos_job/page/search/search_page.dart';
 import 'package:boos_job/page/workDetail/work_detail_page.dart';
 import 'package:fluro/fluro.dart';
@@ -18,6 +19,12 @@ Handler searchPageHandler = Handler(
 Handler workDetailPageHandler = Handler(
   handlerFunc: (BuildContext context,Map<String,List<String>> params){
     return WorkDetailPage();
+  }
+);
+
+Handler aboutPageHandler = Handler(
+  handlerFunc: (BuildContext context,Map<String,List<String>> params){
+    return AboutPage();
   }
 );
 

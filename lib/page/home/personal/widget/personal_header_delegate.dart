@@ -149,12 +149,8 @@ class PersonalHeaderDelegate extends SliverPersistentHeaderDelegate{
     final List<Widget> children = <Widget>[];
     double currentExtent = math.max(minExtent, maxExtent - shrinkOffset);
     final double deltaExtent = maxExtent - minExtent;
-    final double fadeStart = math.max(0.0, 1.0 - kToolbarHeight / deltaExtent);
-    const double fadeEnd = 1.0;
-    // 0.0 -> Expanded
-    // 1.0 -> Collapsed to toolbar
     final double t = (1.0 - (currentExtent - minExtent) / deltaExtent).clamp(0.0, 1.0) as double;
-    final double opacity = 1.0 - Interval(fadeStart, fadeEnd).transform(t);
+    final double opacity = Tween<double>(begin: 1, end: 0.1).transform(t);
     final double scaleValue = Tween<double>(begin: 1.5, end: 1.0).transform(t);
     final double top = Tween<double>(begin: 105, end: 44).transform(t);
     children.add(Positioned(

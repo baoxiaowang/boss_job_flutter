@@ -1,4 +1,6 @@
 import 'package:boos_job/page/home/personal/widget/setting_row.dart';
+import 'package:boos_job/routes/application.dart';
+import 'package:boos_job/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'widget/personal_header_delegate.dart';
 class PersonalPage extends StatelessWidget {
@@ -115,7 +117,7 @@ class PersonalPage extends StatelessWidget {
     );
   }
 
-  Widget _otherSetting(){
+  Widget _otherSetting(context){
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15),
       margin: EdgeInsets.only(top: 10),
@@ -139,6 +141,9 @@ class PersonalPage extends StatelessWidget {
             SettingRow(
               icon: Icon(Icons.info_outline, color: Color(0xff909090)),
               title: '关于',
+              onTab: (){
+                Application.router.navigateTo(context, Routes.about);
+              },
             ),
             Container(
               margin: EdgeInsets.only(top: 10),
@@ -253,7 +258,7 @@ class PersonalPage extends StatelessWidget {
               _fileSetting(),
               _mySetting(),
               _resumeSetting(),
-              _otherSetting(),
+              _otherSetting(context),
               _aboutBlock()
             ])
           ),

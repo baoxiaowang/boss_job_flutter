@@ -32,6 +32,7 @@ dependencies:
   provider: ^4.3.2+1  # 状态管理
   fluro: ^1.6.3 # 路由管理
   flutter_easyrefresh: ^2.1.5 # 下拉刷新，下拉加载
+  webview_flutter: ^0.3.22+1 # webview支持
 
 dev_dependencies:
   flutter_test:

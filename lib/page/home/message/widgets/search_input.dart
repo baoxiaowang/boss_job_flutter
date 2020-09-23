@@ -23,8 +23,13 @@ class SearchInput extends StatelessWidget {
             vertical: 5,
             horizontal: 5
           ),
+          
           hintText: '通过名字活公司搜索联系人',
-          border: OutlineInputBorder()
+          border: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Color(0xff666666)
+            )
+          )
         ),
       ),
     );

@@ -191,6 +191,7 @@ class _WorkDetailPageState extends State<WorkDetailPage> {
           Container(
             margin: EdgeInsets.only(bottom: 10),
             child: ExpandableText(textInfo,
+              linkColor: Theme.of(context).primaryColor,
               expandText: '查看全部',
               collapseText: '',
               expanded: false,

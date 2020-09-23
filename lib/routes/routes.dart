@@ -8,6 +8,7 @@ class Routes{
   static String root = '/';
   static String searchPath = '/search';
   static String workDetail = '/worlDetail';
+  static String about = '/about';
   
   // 路由表
   static List<RouteConifg> routerHandlers = [
@@ -19,6 +20,10 @@ class Routes{
       path: Routes.workDetail,
       handler: workDetailPageHandler
     ),
+    RouteConifg(
+      path: Routes.about,
+      handler: aboutPageHandler
+    )
   ];
 
   static void configureRoutes(fluro.Router router){
